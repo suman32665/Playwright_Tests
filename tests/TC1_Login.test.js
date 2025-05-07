@@ -25,6 +25,7 @@ test.describe('@login: Login Functionality', () => {
       await loginPage.navigateBaseUrl();
       await loginPage.login(credentials.invalidUser.username, credentials.standardUser.password);
     })
+
     await test.step('Verify the error message', async () => {
       const error = await loginPage.getErrorMessage();
       expect(error).toEqual('Epic sadface: Username and password do not match any user in this service');
@@ -38,6 +39,7 @@ test.describe('@login: Login Functionality', () => {
       await loginPage.navigateBaseUrl();
       await loginPage.login(credentials.standardUser.username, credentials.invalidPassword.password);
     })
+    
     await test.step('Verify the error message', async () => {
       const error = await loginPage.getErrorMessage();
       expect(error).toEqual('Epic sadface: Username and password do not match any user in this service');

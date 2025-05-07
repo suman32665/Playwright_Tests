@@ -5,17 +5,30 @@ export class ProductsPage extends BasePage {
     super(page);
     this.productsTitle = page.locator("//*[@data-test='title' and text()='Products']");
     this.shoppingCartLink = page.locator(".shopping_cart_link");
+    this.dropdownSort = page.locator(".product_sort_container");
   }
 
-  addToCart(name){
+  addToCart(name) {
     return this.page.locator(`//*[.='${name}']//parent::div[@class='inventory_item_label']//following-sibling::*//*[text()='Add to cart']`);
+  }
+
+  priceForItem(item) {
+    return this.page.locator(`//*[.='${item}']//parent::div[@class='inventory_item_label']//following-sibling::*//*[@class='inventory_item_price']`);
+  }
+
+  itemByOrder(order) {
+    return this.page.locator(`//*[@class='inventory_item'][${order}]//*[@class='inventory_item_name ']`);
+  }
+
+  priceByOrder(order) {
+    return this.page.locator(`//*[@class='inventory_item'][${order}]//*[@class='inventory_item_price']`);
   }
 
   async verifyTitle() {
     return this.isVisible(this.productsTitle);
   }
 
-  async clickShoppingCartLink(){
+  async clickShoppingCartLink() {
     await this.click(this.shoppingCartLink);
     await this.waitForPageLoad();
   }
@@ -23,5 +36,22 @@ export class ProductsPage extends BasePage {
   async clickAddToCart(name) {
     await this.click(this.addToCart(name));
   }
+
+  async getPriceItem(item) {
+    return this.getText(this.priceForItem(item));
+  }
+
+  async getItemNameByOrder(order) {
+    return this.getText(this.itemByOrder(order));
+  }
+
+  async getPriceByOrder(order) {
+    return this.getText(this.priceByOrder(order));
+  }
+
+  async sortBy(label) {
+    await this.dropdownSort.selectOption({ label: `${label}` })
+  }
+
 }
 export default ProductsPage

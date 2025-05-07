@@ -27,10 +27,6 @@ export class BasePage {
     return await locator.isVisible();
   }
 
-  async open(url) {
-    return await this.page.goto(url)
-  }
-
   async getTitle() {
     return await this.page.title()
   }
@@ -50,6 +46,6 @@ export class BasePage {
   async waitForPageLoad() {
     return await this.page.waitForLoadState('domcontentloaded')
   }
-
+  
 }
 export default BasePage;

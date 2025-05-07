@@ -53,8 +53,8 @@ test.describe('@addtocart: Add to Cart Functionality', () => {
         })
 
         await test.step('Verify products in cart:Sauce Labs Backpack, Sauce Labs Fleece Jacket', async () => {
-            await cartPage.verifyProductInCart('Sauce Labs Backpack');
-            await cartPage.verifyProductInCart('Sauce Labs Fleece Jacket');
+            expect(await cartPage.verifyProductInCart('Sauce Labs Backpack')).toBeTruthy();
+            expect(await cartPage.verifyProductInCart('Sauce Labs Fleece Jacket')).toBeTruthy();
         })
 
         await test.step('Click on Checkout button', async () => {
@@ -70,24 +70,28 @@ test.describe('@addtocart: Add to Cart Functionality', () => {
         })
 
         await test.step('Verify products in Checkout Overview:Sauce Labs Backpack, Sauce Labs Fleece Jacket', async () => {
-            await checkoutOverviewPage.verifyProductInCart('Sauce Labs Backpack');
-            await checkoutOverviewPage.verifyProductInCart('Sauce Labs Fleece Jacket');
+            expect(await checkoutOverviewPage.verifyProductInCart('Sauce Labs Backpack')).toBeTruthy();
+            expect(await checkoutOverviewPage.verifyProductInCart('Sauce Labs Fleece Jacket')).toBeTruthy();
         })
 
         await test.step('Click on Finish button', async () => {
             await checkoutOverviewPage.clickFinishButton();
         })
+
         await test.step('Verify Complete Header Message: Thank you for your order!', async () => {
-            await checkoutCompletePage.verifyCompleteHeaderMessage();
+            expect(await checkoutCompletePage.verifyCompleteHeaderMessage()).toBeTruthy();
         })
+
         await test.step('Verify Complete Text Message: Your order has been dispatched, and will arrive just as fast as the pony can get there!', async () => {
-            await checkoutCompletePage.verifyCompleteTextMessage();
+            expect(await checkoutCompletePage.verifyCompleteTextMessage()).toBeTruthy();
         })
+
         await test.step('Click on BackHome button', async () => {
             await checkoutCompletePage.clickBackHomeButton();
         })
+
         await test.step('Verify Products Page Title', async () => {
             expect(await productsPage.verifyTitle()).toBeTruthy();
-          })
+        })
     });
 });

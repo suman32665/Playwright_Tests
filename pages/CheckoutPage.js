@@ -9,10 +9,15 @@ export class CheckoutPage extends BasePage {
         this.zipCode = page.locator("#postal-code");
         this.continueButton = page.locator('#continue');
         this.cancelButton = page.locator('#cancel');
+        this.errorMessage = page.locator("//*[@data-test='error']");
     }
 
     async verifyTitle() {
         return this.isVisible(this.cartTitle);
+    }
+
+    async getErrorMessage() {
+        return this.getText(this.errorMessage);
     }
 
     async clickCancelButton() {
