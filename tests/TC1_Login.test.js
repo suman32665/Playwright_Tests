@@ -14,7 +14,7 @@ test.describe('@login: Login Functionality', () => {
     })
    
     await test.step('Verify Products Page Title', async () => {  
-        expect(await productsPage.isLoaded()).toBeTruthy();
+        expect(await productsPage.verifyTitle()).toBeTruthy();
     })
   });
 
@@ -27,7 +27,7 @@ test.describe('@login: Login Functionality', () => {
     })
     await test.step('Verify the error message', async () => {
       const error = await loginPage.getErrorMessage();
-    expect(error).toEqual('Epic sadface: Username and password do not match any user in this service');
+      expect(error).toEqual('Epic sadface: Username and password do not match any user in this service');
     })
   });
     test('should show error for invalid password', async ({ page }) => {
@@ -39,7 +39,7 @@ test.describe('@login: Login Functionality', () => {
       })
       await test.step('Verify the error message', async () => {
         const error = await loginPage.getErrorMessage();
-      expect(error).toEqual('Epic sadface: Username and password do not match any user in this service');
+        expect(error).toEqual('Epic sadface: Username and password do not match any user in this service');
       })
   });
 });
