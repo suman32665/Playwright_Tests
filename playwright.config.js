@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig,devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
@@ -11,4 +11,12 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
+  projects: [
+    {
+        name: 'Chrome',
+        use: {
+          ...devices['Desktop Chrome'],
+        },
+      },
+    ],
 });

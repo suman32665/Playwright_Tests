@@ -1,4 +1,4 @@
-import { BasePage } from './utils/BasePage.js';
+import { BasePage } from '../utils/BasePage.js';
 
 export class LoginPage extends BasePage {
   constructor(page) {
@@ -19,3 +19,4 @@ export class LoginPage extends BasePage {
     return this.getText(this.errorMessage);
   }
 }
+export default LoginPage
