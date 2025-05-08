@@ -10,17 +10,23 @@ test.describe('@navbar: Navigation Bar Test', () => {
         await loginPage.waitForPageLoad();
         await loginPage.login(credentials.standardUser.username, credentials.standardUser.password);
     });
+
     test('Click on Hamburger Menu and Verify Nav Bar Menu', async ({ page }) => {
         const navigationBarPage = new NavigationBarPage(page);
 
         await test.step('Click on Hamburger Menu', async () => {
             await navigationBarPage.clickHamburgerMenu();
         })
+
         await test.step('Verify Navigation Bar Menu', async () => {
             expect(await navigationBarPage.verifyAllItems()).toBeTruthy();
             expect(await navigationBarPage.verifyAbout()).toBeTruthy();
             expect(await navigationBarPage.verifyLogout()).toBeTruthy();
             expect(await navigationBarPage.verifyResetAppState()).toBeTruthy();
+        })
+        
+        await test.step('Click Close button in Navigation Bar', async () => {
+            await navigationBarPage.clickCloseButton();
         })
     });
 });

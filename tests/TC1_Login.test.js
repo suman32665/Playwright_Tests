@@ -31,7 +31,7 @@ test.describe('@login: Login Functionality', () => {
       expect(error).toEqual('Epic sadface: Username and password do not match any user in this service');
     })
   });
-  
+
   test('should show error for invalid password', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
@@ -39,10 +39,24 @@ test.describe('@login: Login Functionality', () => {
       await loginPage.navigateBaseUrl();
       await loginPage.login(credentials.standardUser.username, credentials.invalidPassword.password);
     })
-    
+
     await test.step('Verify the error message', async () => {
       const error = await loginPage.getErrorMessage();
       expect(error).toEqual('Epic sadface: Username and password do not match any user in this service');
+    })
+  });
+
+  test('should show error for locked out user', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+
+    await test.step('Navigate to the Base Url and Login with locked out user', async () => {
+      await loginPage.navigateBaseUrl();
+      await loginPage.login(credentials.lockedOutUser.username, credentials.lockedOutUser.password);
+    })
+
+    await test.step('Verify the error message', async () => {
+      const error = await loginPage.getErrorMessage();
+      expect(error).toEqual('Epic sadface: Sorry, this user has been locked out.');
     })
   });
 });

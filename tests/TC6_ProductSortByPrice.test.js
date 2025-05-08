@@ -3,7 +3,6 @@ import { LoginPage } from '../pages/LoginPage.js';
 import { ProductsPage } from '../pages/ProductsPage.js';
 import { credentials } from '../config/config.js';
 
-
 test.describe('@products: Sort Product  ', () => {
     test.beforeEach(async ({ page }) => {
         const loginPage = new LoginPage(page);

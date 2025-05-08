@@ -30,5 +30,8 @@ export class NavigationBarPage extends BasePage {
   async clickCloseButton() {
     await this.click(this.closeButton);
   }
+  async clickLogout() {
+    await this.click(this.logout);
+  }
 }
 export default NavigationBarPage

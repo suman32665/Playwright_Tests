@@ -23,6 +23,10 @@ export class BasePage {
     return await locator.textContent();
   }
 
+  async getAttribute(locator, attribute) {
+    return await locator.getAttribute(attribute);
+  }
+
   async isVisible(locator) {
     return await locator.isVisible();
   }

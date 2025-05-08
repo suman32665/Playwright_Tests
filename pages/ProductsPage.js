@@ -24,6 +24,14 @@ export class ProductsPage extends BasePage {
     return this.page.locator(`//*[@class='inventory_item'][${order}]//*[@class='inventory_item_price']`);
   }
 
+  imageSrcForItem(item){
+    return this.page.locator(`//*[.='${item}']//ancestor::div[@class='inventory_item']//img`);
+  }
+
+  productName(item) {
+    return this.page.locator(`//*[@class='inventory_item_name ' and text()='${item}']`);
+  }
+
   async verifyTitle() {
     return this.isVisible(this.productsTitle);
   }
@@ -37,6 +45,10 @@ export class ProductsPage extends BasePage {
     await this.click(this.addToCart(name));
   }
 
+  async clickProduct(item) {
+    await this.click(this.productName(item));
+  }
+
   async getPriceItem(item) {
     return this.getText(this.priceForItem(item));
   }
@@ -47,6 +59,10 @@ export class ProductsPage extends BasePage {
 
   async getPriceByOrder(order) {
     return this.getText(this.priceByOrder(order));
+  }
+
+  async getImageSrcForItem(item) {
+    return this.getAttribute(this.imageSrcForItem(item), 'src');
   }
 
   async sortBy(label) {

@@ -18,5 +18,9 @@ export class LoginPage extends BasePage {
   async getErrorMessage() {
     return this.getText(this.errorMessage);
   }
+
+  async verifyLoginButton() {
+    return this.isVisible(this.loginButton);
+  }
 }
 export default LoginPage
