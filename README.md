@@ -43,7 +43,7 @@ Once NVM is installed, you can install and manage Node.js versions:
 
 nvm install 20
 
-nvm use 18
+nvm use 20
 
 node -v
 

@@ -62,6 +62,7 @@ export class ProductsPage extends BasePage {
   }
 
   async getImageSrcForItem(item) {
+    await this.wait();
     return this.getAttribute(this.imageSrcForItem(item), 'src');
   }
 

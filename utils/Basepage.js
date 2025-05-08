@@ -44,7 +44,7 @@ export class BasePage {
   }
 
   async wait() {
-    return this.page.waitForTimeout(10000)
+    return this.page.waitForTimeout(3000)
   }
 
   async waitForPageLoad() {
