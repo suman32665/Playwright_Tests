@@ -50,6 +50,8 @@ node -v
 **To Run the test use the following command in terminal(First change directory to test project)**
 
 npm install
+npx playwright install
 
+**To Run the test
 npm run test:chrome
 
