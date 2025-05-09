@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:chrome": "npx playwright test --project=Chrome"
+    "test:chrome": "npx playwright test --project=Chrome",
+    "test:login": "npx playwright test --grep @login --project=Chrome",
+    "test:addtocart": "npx playwright test --grep @addtocart --project=Chrome",
+    "test:validateform": "npx playwright test --grep @validateform --project=Chrome",
+    "test:navbar": "npx playwright test --grep @navbar --project=Chrome",
+    "test:footer": "npx playwright test --grep @footer --project=Chrome",
+    "test:logout": "npx playwright test --grep @logout --project=Chrome"
   },
   "keywords": [],
   "author": "Suman Maharjan",

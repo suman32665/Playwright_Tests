@@ -52,10 +52,10 @@ export class BasePage {
   }
 
   async scrollToBottom() {
-    await page.evaluate(() => {
+    await this.page.evaluate(() => {
       window.scrollTo(0, document.body.scrollHeight);
     });
   }
 }
 
-export default BasePage;
+export default BasePage

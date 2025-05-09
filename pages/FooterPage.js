@@ -10,15 +10,15 @@ export class FooterPage extends BasePage {
   }
 
   async getTwitterURL() {
-    return this.getAttribute(this.twitter);
+    return this.getAttribute(this.twitter, 'href');
   }
 
   async getFacebookURL() {
-    return this.getAttribute(this.facebook);
+    return this.getAttribute(this.facebook, 'href');
   }
 
   async getLinkedInURL() {
-    return this.getAttribute(this.linkedin);
+    return this.getAttribute(this.linkedin, 'href');
   }
 
   async getCopyRightText() {
