@@ -52,6 +52,7 @@ node -v
 npm install
 npx playwright install
 
-**To Run the test
+**For Running Test**
+
 npm run test:chrome
 
