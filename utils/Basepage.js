@@ -50,6 +50,12 @@ export class BasePage {
   async waitForPageLoad() {
     return await this.page.waitForLoadState('domcontentloaded')
   }
-  
+
+  async scrollToBottom() {
+    await page.evaluate(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    });
+  }
 }
+
 export default BasePage;
