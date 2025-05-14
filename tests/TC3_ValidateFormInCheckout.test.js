@@ -5,7 +5,9 @@ import { credentials, userDetails } from '../config/config.js';
 import CartPage from '../pages/CartPage.js';
 import CheckoutPage from '../pages/CheckoutPage.js';
 
-test.describe('@validateForm: Form Validation', () => {
+test.describe('Form Validation', {
+    tag: '@validateForm',
+}, () => {
     test.beforeEach(async ({ page }) => {
         const loginPage = new LoginPage(page);
         await loginPage.navigateBaseUrl();
@@ -31,7 +33,7 @@ test.describe('@validateForm: Form Validation', () => {
             await checkoutPage.clickContinueButton();
             const error = await checkoutPage.getErrorMessage();
             expect(error).toEqual('Error: First Name is required');
-          
+
         })
 
         await test.step('Validate field: Last Name', async () => {

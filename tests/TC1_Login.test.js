@@ -3,7 +3,9 @@ import { LoginPage } from '../pages/LoginPage.js';
 import { ProductsPage } from '../pages/ProductsPage.js';
 import { credentials } from '../config/config.js';
 
-test.describe('@login: Login Functionality', () => {
+test.describe('Login Functionality', {
+  tag: '@login',
+}, () => {
   test('should login with valid credentials', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const productsPage = new ProductsPage(page);

@@ -12,7 +12,9 @@ import { credentials } from '../config/config.js';
     { item: 'Sauce Labs Onesie', price: '$7.99' },
     { item: 'Test.allTheThings() T-Shirt (Red)', price: '$15.99' },
 ].forEach(({ item, price }) => {
-    test.describe(`@products: Verify ${item} in Product Detail Page`, () => {
+    test.describe(`Verify ${item} in Product Detail Page`, {
+        tag: '@products',
+    }, () => {
         test.beforeEach(async ({ page }) => {
             const loginPage = new LoginPage(page);
             await loginPage.navigateBaseUrl();

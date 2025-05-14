@@ -6,6 +6,7 @@ export class CartPage extends BasePage {
         this.cartTitle = page.locator("//*[@data-test='title' and text()='Your Cart']");
         this.continueShoppingButton = page.locator('#continue-shopping');
         this.checkoutButton = page.locator('#checkout');
+        
     }
     productInCart(name) {
         return this.page.locator(`//*[@class='cart_list']//*[text()='${name}']`);

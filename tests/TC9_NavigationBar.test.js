@@ -3,7 +3,9 @@ import { LoginPage } from '../pages/LoginPage.js';
 import { NavigationBarPage } from '../pages/NavigationBarPage.js';
 import { credentials } from '../config/config.js';
 
-test.describe('@navbar: Navigation Bar Test', () => {
+test.describe(' Navigation Bar Test', {
+    tag: '@navbar',
+}, () => {
     test.beforeEach(async ({ page }) => {
         const loginPage = new LoginPage(page);
         await loginPage.navigateBaseUrl();
@@ -24,7 +26,7 @@ test.describe('@navbar: Navigation Bar Test', () => {
             expect(await navigationBarPage.verifyLogout()).toBeTruthy();
             expect(await navigationBarPage.verifyResetAppState()).toBeTruthy();
         })
-        
+
         await test.step('Click Close button in Navigation Bar', async () => {
             await navigationBarPage.clickCloseButton();
         })

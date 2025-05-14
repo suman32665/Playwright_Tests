@@ -3,7 +3,9 @@ import { LoginPage } from '../pages/LoginPage.js';
 import { NavigationBarPage } from '../pages/NavigationBarPage.js';
 import { credentials } from '../config/config.js';
 
-test.describe('@logout: Logout Functionality', () => {
+test.describe('Logout Functionality', {
+    tag: '@logout',
+}, () => {
 
     test.beforeEach(async ({ page }) => {
         const loginPage = new LoginPage(page);

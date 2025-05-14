@@ -7,7 +7,9 @@ import CheckoutPage from '../pages/CheckoutPage.js';
 import CheckoutOverviewPage from '../pages/CheckoutOverviewPage.js';
 import CheckoutCompletePage from '../pages/CheckoutCompletePage.js';
 
-test.describe('@addtocart: Add to Cart Functionality', () => {
+test.describe('Add to Cart Functionality', {
+    tag: '@addtocart',
+}, () => {
     test.beforeEach(async ({ page }) => {
         const loginPage = new LoginPage(page);
         await loginPage.navigateBaseUrl();

@@ -11,12 +11,14 @@ import { credentials } from '../config/config.js';
     { item: 'Sauce Labs Onesie', img: '/static/media/red-onesie-1200x1500.2ec615b2.jpg' },
     { item: 'Test.allTheThings() T-Shirt (Red)', img: '/static/media/red-tatt-1200x1500.30dadef4.jpg' },
 ].forEach(({ item, img }) => {
-    test.describe(`@products: Login with Standard User and Verify Image Source for ${item}`, () => {
+    test.describe(` Login with Standard User and Verify Image Source for ${item}`, {
+        tag: '@products',
+    }, () => {
         test.beforeEach(async ({ page }) => {
             const loginPage = new LoginPage(page);
             await loginPage.navigateBaseUrl();
             await loginPage.waitForPageLoad();
-            await loginPage.login(credentials.standardUser.username, credentials.standardUser.password);           
+            await loginPage.login(credentials.standardUser.username, credentials.standardUser.password);
             await loginPage.waitForPageLoad();
         });
 
@@ -40,12 +42,14 @@ import { credentials } from '../config/config.js';
     { item: 'Sauce Labs Onesie', img: '/static/media/red-onesie-1200x1500.2ec615b2.jpg' },
     { item: 'Test.allTheThings() T-Shirt (Red)', img: '/static/media/red-tatt-1200x1500.30dadef4.jpg' },
 ].forEach(({ item, img }) => {
-    test.describe(`@products: Login with Problem User and Verify Image Source for ${item}`, () => {
+    test.describe(`Login with Problem User and Verify Image Source for ${item}`, {
+        tag: '@products',
+    }, () => {
         test.beforeEach(async ({ page }) => {
             const loginPage = new LoginPage(page);
             await loginPage.navigateBaseUrl();
             await loginPage.waitForPageLoad();
-            await loginPage.login(credentials.problemUser.username, credentials.problemUser.password);          
+            await loginPage.login(credentials.problemUser.username, credentials.problemUser.password);
             await loginPage.waitForPageLoad();
         });
 
